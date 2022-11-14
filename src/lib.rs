@@ -36,4 +36,6 @@ mod traits;
 #[cfg(feature = "xl_types")]
 mod xl_types;
 
-pub use traits::{ICheckedOps, IMinMax, IOverflowingOps, ISaturatingOps, IWrappingOps};
+pub use traits::{
+    ICheckedOps, IMinMax, IOverflowingOps, IPanickingOps, ISaturatingOps, IWrappingOps,
+};

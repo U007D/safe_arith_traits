@@ -5,39 +5,35 @@
 mod unit_tests;
 
 pub trait ISaturatingOps<T = Self> {
-    type Output/*: Into<()>*/;
-
     #[must_use]
-    fn saturating_abs(self) -> Self::Output;
+    fn saturating_abs(self) -> Self;
     #[must_use]
-    fn saturating_add(self, rhs: T) -> Self::Output;
+    fn saturating_add(self, rhs: T) -> Self;
     #[must_use]
-    fn saturating_div(self, rhs: T) -> Self::Output;
+    fn saturating_div(self, rhs: T) -> Self;
     #[must_use]
-    fn saturating_div_euclid(self, rhs: T) -> Self::Output;
+    fn saturating_div_euclid(self, rhs: T) -> Self;
     #[must_use]
-    fn saturating_mul(self, rhs: T) -> Self::Output;
+    fn saturating_mul(self, rhs: T) -> Self;
     #[must_use]
-    fn saturating_neg(self) -> Self::Output;
+    fn saturating_neg(self) -> Self;
     #[must_use]
-    fn saturating_pow(self, rhs: u32) -> Self::Output;
+    fn saturating_pow(self, rhs: u32) -> Self;
     #[must_use]
-    fn saturating_rem(self, rhs: T) -> Self::Output;
+    fn saturating_rem(self, rhs: T) -> Self;
     #[must_use]
-    fn saturating_rem_euclid(self, rhs: T) -> Self::Output;
+    fn saturating_rem_euclid(self, rhs: T) -> Self;
     #[must_use]
-    fn saturating_shl(self, rhs: u32) -> Self::Output;
+    fn saturating_shl(self, rhs: u32) -> Self;
     #[must_use]
-    fn saturating_shr(self, rhs: u32) -> Self::Output;
+    fn saturating_shr(self, rhs: u32) -> Self;
     #[must_use]
-    fn saturating_sub(self, rhs: T) -> Self::Output;
+    fn saturating_sub(self, rhs: T) -> Self;
 }
 
 macro_rules! saturating_impl {
     ($tr:ty, $ret:ty; $($t:ty),+ $(,)?) => ($(
         impl ISaturatingOps for $t {
-           type Output = $ret;
-
            binary_op_impl! {
                 $tr, $t, $ret;
                 saturating_add,

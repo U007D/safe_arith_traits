@@ -11,15 +11,11 @@ Fully safe arithmetic is defined as arithmetic which will fail to compile if the
 possibility of an overflow not specifically requested by the developer.
 
 The arithmetic overflow operations are grouped as follows:
-    * `CheckedOps`
-
-    * `OverflowingOps`
-
-    * `PanickingOps`
-
-    * `SaturatingOps`
-
-    * `WrappingOps`
+  * `CheckedOps`
+  * `OverflowingOps`
+  * `PanickingOps`
+  * `SaturatingOps`
+  * `WrappingOps`
 
 If you've ever wanted your generic function to accept any value that supports, for example,
 checked arithmetic, you have discovered that `std` does not define a `trait` that all checked types
